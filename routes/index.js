@@ -15,7 +15,7 @@ exports.uploadPicture = function(req, res) {
   fs.readFile(req.files.displayImage.path, function(err, data) {
     if(err) throw err
 
-    var newPath = __dirname + '/uploads/' + fileName;
+    var newPath = __dirname + '../uploads/' + fileName;
     fs.writeFile(newPath, data, function(err) {
       if(err) throw err
 
@@ -34,7 +34,7 @@ exports.showPicture = function(req, res) {
   var fileName = req.route.params.fileName;
   var type = fileName.split('.')[1];
 
-  fs.readFile(__dirname + '/uploads/' + fileName, function(err, data) {
+  fs.readFile(__dirname + '../uploads/' + fileName, function(err, data) {
     if(err) throw err
     res.writeHead(200, {
       'Content-Type': 'image/' + type
